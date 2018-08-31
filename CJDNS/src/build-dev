@@ -2,7 +2,7 @@
 
 ##issue - missing files still like node_modules, not sure where to put them
 
-TAG_CJDNS=d2e55d58548d83940482fe1bbbe1fd36f7f1b4ef
+TAG_CJDNS=186169f9a8631633795e4e9d70c501519a7800f4
 CJDNS_BUILD_CMD="sudo Seccomp_NO=1 CFLAGS=\"-s -static -Wall -mfpu=neon-vfpv4\" ./do"
 
 mkdir cjdns
@@ -10,7 +10,7 @@ cd cjdns
 
 git clone https://github.com/cjdelisle/cjdns.git cjdns-src
 cd cjdns-src
-git checkout $TAG_CJDNS
+git checkout $TAG_CJDNS 
 eval $CJDNS_BUILD_CMD
 
 mkdir -p ../usr/bin
@@ -34,10 +34,10 @@ cd ..
 mkdir DEBIAN
 cat << EOF  > DEBIAN/control
 Package: CJDNS-neon
-Version: 3.0 
+Version: $TAG_CJDNS 
 Maintainer: darkdrgn2k 
 Architecture: armhf
-Description: CJDNS with Neon accel $TAG_CJDNS
+Description: CJDNS with Neon accel
 EOF
 cat << EOF  > DEBIAN/postinst
 #!/bin/bash
@@ -52,4 +52,5 @@ chmod a+x DEBIAN/postinst
 rm -rf cjdns-src
 cd ..
 dpkg-deb --build cjdns
-mv cjdns.deb cjdns-neon-v4.deb
+mv cjdns.deb cjdns-neon.deb
+
