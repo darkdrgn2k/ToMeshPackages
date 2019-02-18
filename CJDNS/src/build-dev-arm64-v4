@@ -3,8 +3,8 @@
 ##issue - missing files still like node_modules, not sure where to put them
 
 TAG_CJDNS=d2e55d58548d83940482fe1bbbe1fd36f7f1b4ef
-CJDNS_BUILD_CMD="sudo Seccomp_NO=1 CFLAGS=\"-s -static -Wall -mfpu=neon-vfpv4\" ./do"
-
+CJDNS_BUILD_CMD="sudo Seccomp_NO=1 CFLAGS=\"-s -static -Wall -march=armv8-a+crc+crypto -fomit-frame-pointer\" ./do"
+ 
 mkdir cjdns
 cd cjdns
 
