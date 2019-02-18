@@ -36,7 +36,7 @@ cat << EOF  > DEBIAN/control
 Package: CJDNS-neon
 Version: 4.0 
 Maintainer: darkdrgn2k 
-Architecture: aarch64
+Architecture: arm64
 Description: CJDNS with Neon accel $TAG_CJDNS
 EOF
 cat << EOF  > DEBIAN/postinst
